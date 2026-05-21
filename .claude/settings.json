@@ -1,0 +1,70 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "hooks/pre-bash-guard.sh",
+            "timeout": 10,
+            "statusMessage": "Checking command safety..."
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "mkdir -p ${CLAUDE_PROJECT_DIR}/.claude/audit/tmp/${CLAUDE_SESSION_ID} && echo >> ${CLAUDE_PROJECT_DIR}/.claude/audit/tmp/${CLAUDE_SESSION_ID}/pre",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "hooks/post-edit-format.sh",
+            "timeout": 10,
+            "statusMessage": "Formatting markdown..."
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "mkdir -p ${CLAUDE_PROJECT_DIR}/.claude/audit/tmp/${CLAUDE_SESSION_ID} && echo >> ${CLAUDE_PROJECT_DIR}/.claude/audit/tmp/${CLAUDE_SESSION_ID}/post",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "mkdir -p ${CLAUDE_PROJECT_DIR}/.claude/audit/tmp/${CLAUDE_SESSION_ID} && echo >> ${CLAUDE_PROJECT_DIR}/.claude/audit/tmp/${CLAUDE_SESSION_ID}/subagent",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "hooks/stop-summary.sh",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}
