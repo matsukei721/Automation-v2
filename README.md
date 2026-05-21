@@ -365,6 +365,17 @@ Automation/
 ├── pyproject.toml        # プロジェクト設定・依存関係
 ├── uv.lock               # 依存関係ロックファイル
 ├── .python-version       # Python バージョン固定（3.11）
+├── hooks/                # Claude Code フック（自動実行スクリプト）
+│   ├── pre-bash-guard.sh   # 危険コマンド（rm -rf / sudo 等）を自動ブロック
+│   ├── post-edit-format.sh # .md 編集時に更新日時スタンプを自動付与
+│   └── stop-summary.sh     # セッション終了時にツール使用回数を JSON で記録
+├── .claude/
+│   ├── settings.json     # Claude Code フック設定（チーム共有）
+│   ├── agents/
+│   │   └── log-reader.md # ログ解析サブエージェント（5xxエラー要約）
+│   └── skills/
+│       └── summarize-log/
+│           └── SKILL.md  # /summarize-log スキル定義
 ├── modules/
 │   ├── __init__.py       # 各クライアントのエクスポート
 │   ├── jira.py           # Jira REST API v3 クライアント
