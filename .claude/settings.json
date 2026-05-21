@@ -16,7 +16,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "mkdir -p ${CLAUDE_PROJECT_DIR}/.claude/audit/tmp/${CLAUDE_SESSION_ID} && echo >> ${CLAUDE_PROJECT_DIR}/.claude/audit/tmp/${CLAUDE_SESSION_ID}/pre",
+            "command": "mkdir -p \"${CLAUDE_PROJECT_DIR}/.claude/audit/tmp/${CLAUDE_SESSION_ID}\" && echo >> \"${CLAUDE_PROJECT_DIR}/.claude/audit/tmp/${CLAUDE_SESSION_ID}/pre\"",
             "async": true
           }
         ]
@@ -35,21 +35,20 @@
         ]
       },
       {
+        "matcher": "Agent",
         "hooks": [
           {
             "type": "command",
-            "command": "mkdir -p ${CLAUDE_PROJECT_DIR}/.claude/audit/tmp/${CLAUDE_SESSION_ID} && echo >> ${CLAUDE_PROJECT_DIR}/.claude/audit/tmp/${CLAUDE_SESSION_ID}/post",
+            "command": "mkdir -p \"${CLAUDE_PROJECT_DIR}/.claude/audit/tmp/${CLAUDE_SESSION_ID}\" && echo >> \"${CLAUDE_PROJECT_DIR}/.claude/audit/tmp/${CLAUDE_SESSION_ID}/subagent\"",
             "async": true
           }
         ]
-      }
-    ],
-    "SubagentStart": [
+      },
       {
         "hooks": [
           {
             "type": "command",
-            "command": "mkdir -p ${CLAUDE_PROJECT_DIR}/.claude/audit/tmp/${CLAUDE_SESSION_ID} && echo >> ${CLAUDE_PROJECT_DIR}/.claude/audit/tmp/${CLAUDE_SESSION_ID}/subagent",
+            "command": "mkdir -p \"${CLAUDE_PROJECT_DIR}/.claude/audit/tmp/${CLAUDE_SESSION_ID}\" && echo >> \"${CLAUDE_PROJECT_DIR}/.claude/audit/tmp/${CLAUDE_SESSION_ID}/post\"",
             "async": true
           }
         ]
