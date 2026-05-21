@@ -2,8 +2,8 @@
 name: summarize-log
 description: アクセスログを読み、5xx多発の原因を要約する
 allowed-tools: Read, Grep, Bash
-context: fork
-agent: log-reader
+context: fork  # 現バージョンでは未動作・将来対応待ち
+agent: log-reader  # 現バージョンでは未動作・将来対応待ち
 ---
 
 引数で渡されたログファイルを解析し、5xx多発の原因と時間帯を200 token以内のMarkdownで返す。
