@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "hooks/pre-bash-guard.sh",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/hooks/pre-bash-guard.sh",
             "timeout": 10,
             "statusMessage": "Checking command safety..."
           }
@@ -28,7 +28,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "hooks/post-edit-format.sh",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/hooks/post-edit-format.sh",
             "timeout": 10,
             "statusMessage": "Formatting markdown..."
           }
@@ -60,7 +60,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "hooks/stop-summary.sh",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/hooks/stop-summary.sh",
             "timeout": 15
           }
         ]
